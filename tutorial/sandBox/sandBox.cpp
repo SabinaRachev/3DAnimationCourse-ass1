@@ -100,7 +100,7 @@ void SandBox::initData(int i) {
 
 void SandBox::caculateQMatrix(Eigen::MatrixXd& V, Eigen::MatrixXi& F, int index){
 	std::vector<std::vector<int> > VF;// vertex to faces
-	std::vector<std::vector<int> > VFi;
+	std::vector<std::vector<int> > VFi;//not used
 	int n = V.rows();
 	Qmatrix[index].resize(n);
 	igl::vertex_triangle_adjacency(n, F, VF, VFi);
@@ -111,10 +111,10 @@ void SandBox::caculateQMatrix(Eigen::MatrixXd& V, Eigen::MatrixXi& F, int index)
 		//initialize 
 		Qmatrix[index][i] = Eigen::Matrix4d::Zero();
 
-		//caculate vertex Q matrix 
+		//caculate vertex  Q matrix 
 		for (int j = 0; j < VF[i].size(); j++) {
-			Eigen::Vector3d normal = F_normals.row(VF[i][j]).normalized();
-			// the equation is ax+by+c+d=0
+			Eigen::Vector3d normal = F_normals.row(VF[i][j]).normalized();//get face normal
+			// the equation is ax+by+cz+d=0
 			Eigen::Matrix4d curr;
 			double a = normal[0];
 			double b = normal[1];
@@ -124,7 +124,7 @@ void SandBox::caculateQMatrix(Eigen::MatrixXd& V, Eigen::MatrixXi& F, int index)
 			curr.row(0) = Eigen::Vector4d(a*a, a*b, a*c, a*d);
 			curr.row(1) = Eigen::Vector4d(a*b, b*b, b*c, b*d);
 			curr.row(2) = Eigen::Vector4d(a*c, b*c, c*c, c*d);
-			curr.row(3) = Eigen::Vector4d(a*d, d*b, d*c, d*d);
+			curr.row(3) = Eigen::Vector4d(a*d,b*d, c*d, d*d);
 			Qmatrix[index][i] += curr;
 		}
 
