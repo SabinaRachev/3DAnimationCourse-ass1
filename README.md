@@ -11,9 +11,15 @@ The following files were the ones that we had modified to support the simplifica
 ----
 
 in order to run the project:
+
 1.clone the git repository 
-3. Run Cmake gui. choose the project folder and destination folder for the cpp project files. 
-4. Search for "texture_image"on viewerdata.cpp and replace "snake1" with the correct path of your directory. 
-5. Confirm correct configurations paths.
-6. Copy configuration.txt from tutorial/sandBox to build/tutorial/sandBox sandBox as a startup project and compile the project (it could take few minutes);   
-7. Build the project
+
+2. Run Cmake gui. choose the project folder and destination folder for the cpp project files. 
+
+3. Search for "texture_image"on viewerdata.cpp and replace "snake1" with the correct path of your directory. 
+
+4. Confirm correct configurations paths.
+
+5. Copy configuration.txt from tutorial/sandBox to build/tutorial/sandBox sandBox as a startup project and compile the project (it could take few minutes);   
+
+6. Build the project
