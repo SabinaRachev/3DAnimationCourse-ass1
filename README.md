@@ -8,6 +8,8 @@ The following files were the ones that we had modified to support the simplifica
 3. Viewer.cpp /Viewer.h - added a vitual function that is called initData in order to support simplification for loaded objects
 4. ImGuiMenu - added the command viewer->initData() to the function that handles loading objects.
 
+----
+
 in order to run the project:
 1.clone the git repository 
 3. Run Cmake gui. choose the project folder and destination folder for the cpp project files. 
